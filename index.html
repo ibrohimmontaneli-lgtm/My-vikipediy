@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест №7</title>
+
+    <style>
+        @font-face {
+            font-family: 'Minecraft Rus';
+            src: url('fonts/Minecraft-1-1.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+
+        body {
+            font-family: 'Minecraft Rus', sans-serif;
+            text-rendering: optimizeSpeed;
+            -webkit-font-smoothing: none;
+            -moz-osx-font-smoothing: none;
+            background: linear-gradient(to right, rgb(21, 21, 21), rgb(28, 28, 28));
+            position: relative;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgb(189, 189, 189), rgb(179, 179, 179));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.8s ease;   
+        }
+
+        body.light-theme::before {
+            opacity: 1;
+        }
+
+        .switch {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            width: 60px;
+            height: 26px;
+        }
+
+        .toggle {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            image-rendering: pixelated;
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAEECAYAAAD0wkrNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsEAAA7BAbiRa+0AAAGHaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8P3hwYWNrZXQgYmVnaW49J++7vycgaWQ9J1c1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCc/Pg0KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyI+PHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj48cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0idXVpZDpmYWY1YmRkNS1iYTNkLTExZGEtYWQzMS1kMzNkNzUxODJmMWIiIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIj48dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPjwvcmRmOkRlc2NyaXB0aW9uPjwvcmRmOlJERj48L3g6eG1wbWV0YT4NCjw/eHBhY2tldCBlbmQ9J3cnPz4slJgLAAAFd0lEQVR4Xu3YMWpbQRhG0ZGdwqAVJqQzRsYIL8aoSUgppKUJvIaYl346+91Csc+Bab52msu/GWMsAwCAzM08AACwjsACAIgJLACAmMACAIgJLACAmMACAIgJLACAmMACAIgJLACAmMACAIgJLACAmMACAIgJLACAmMACAIgJLACAmMACAIgJLACAmMACAIgJLACA2GaMsczjGsfTeZ4AAK7azx/f52kVFywAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgNhmjLHM4xrH03mersrl8jpPAHzA4fAyT7zDfv88T5/adns3T1fl6XE3T6u4YAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxDZjjGUe1ziezvN0VS6X13kC+BIOh5d5WmW/f54n3uGr/cd2ezdPq9zefpunVXYP9/O0igsWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEA/523t7/pqwksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAIDYZoyxzOMax9N5nq7K5fI6TwB8wOHwMk+8w37/PE+f2nZ7N09X5elxN0+ruGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQ2Y4xlHtf4/evPPAEApJabzTytsnu4n6dVXLAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGKbMcYyjwAAfJwLFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBA7B+FCmkzoT9HAAAAAABJRU5ErkJggg==);
+            background-size: 100% 100%;
+            transition: 0.3s;
+        }
+
+        .slider:before {
+            box-sizing: border-box;
+            position: absolute;
+            content: "";
+            height: 32px;
+            width: 28px;
+            bottom: 0px;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAFACAYAAABnU2MWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsEAAA7BAbiRa+0AAAGHaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8P3hwYWNrZXQgYmVnaW49J++7vycgaWQ9J1c1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCc/Pg0KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyI+PHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj48cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0idXVpZDpmYWY1YmRkNS1iYTNkLTExZGEtYWQzMS1kMzNkNzUxODJmMWIiIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIj48dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPjwvcmRmOkRlc2NyaXB0aW9uPjwvcmRmOlJERj48L3g6eG1wbWV0YT4NCjw/eHBhY2tldCBlbmQ9J3cnPz4slJgLAAAEZElEQVR4Xu3cMWojURBF0WpHQpYXOxivYjBerGWhrCf/aesOFpwTvgVcKqptZvYBCLysA8CjCAyQERggIzBARmCAjMAAGYEBMgIDZAQGyAgMkBEYICMwQEZggIzAABmBATICA2QEBsgIDJARGCCzPfon7/V2XyfgSVzOp3U6xAUDZAQGyAgMkBEYICMwQEZggIzAABmBATICA2QEBsgIDJARGCAjMEBGYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAGYEBMgIDZAQGyAgMkBEYICMwQEZggIzAABmBATICA2QEBsgIDJARGCAjMEBGYICMwACZbWb2dTzieruv06/y/f2zTvDfvL29rtOvcjmf1ukQFwyQERggIzBARmCAjMAAGYEBMgIDZAQGyAgMkBEYICMwQEZggIzAABmBATICA2QEBsgIDJARGCAjMEBGYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAGYEBMgIDZAQGyAgMkBEYICMwQEZggIzAABmBATICA2QEBsgIDJARGCAjMEBGYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAGYEBMgIDZAQGyAgMkBEYICMwQEZggIzAABmBATICA2QEBsgIDJARGCAjMEBGYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAGYEBMgIDZAQGyAgMkBEYICMwQEZggIzAABmBATICA2QEBsgIDJARGCAjMEBGYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAGYEBMgIDZAQGyAgMkBEYICMwQEZggIzAABmBATICA2QEBsgIDJARGCAjMEBGYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAGYEBMgIDZAQGyAgMkBEYICMwQEZggIzAABmBATICA2QEBsgIDJARGCAjMEBGYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAGYEBMgIDZAQGyAgMkBEYICMwQEZggIzAABmBATICA2S2mdnX8Yjr7b5OwJO4nE/rdIgLBsgIDJARGCAjMEBGYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAGYEBMgIDZAQGyAgMkBEYICMwQEZggIzAABmBATICA2QEBsgIDJARGCAjMEBGYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAGYEBMtvM7Ot4xN/Pr3UCnsTH+591OsQFA2QEBsgIDJARGCAjMEBGYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAGYEBMgIDZAQGyAgMkBEYICMwQEZggIzAABmBATICA2QEBsgIDJARGCAjMEBGYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAmW1m9nUEeAQXDJARGCAjMEBGYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAGYEBMgIDZAQGyAgMkBEYICMwQOYfxHAXdb5V9+0AAAAASUVORK5CYII=);
+            background-size: 28px 32px;
+            transition: 0.3s;
+        }
+
+        .toggle:checked + .slider {
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAEECAYAAAD0wkrNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABEYSURBVHhe7daxDTBVDoXRvxqqYHMagJBwO9kqVkh0CjHXof2YG5wnncSRNQ7m+/Hjx4+/AAA4NQYAAOyMAQAAO2MAAMDOGAAAsDMGAADsjAEAADtjAADAzhgAALAzBgAA7IwBAAA7YwAAwM4YAACwMwYAAOyMAQAAO2MAAMDOGAAAsDMGAADsjAEAADtjAADAzhis/PeP36r9/ucvAAD/kD1zYAxWMmja5AcFAMieOTAGKxk0bfKDAgBkzxwYg5UMmjb5QQEAsmcOjMFKBk2b/KAAANkzB8ZgJYOmTX5QAIDsmQNjsJJB0yY/KABA9syBMVjJoGmTHxQAIHvmwBisZNC0yQ8KAJA9c2AMVjJo2uQHBQDInjkwBisZNG3ygwIA7+X/uE32zIExWMmF2+TBAYD38n/cJnvmwBis5MJt8uAAwHv5P26TPXNgDFZy4TZ5cADgvfwft8meOTAGK7lwmzw4APBe/o/bZM8cGIOVXLhNHhwAeC//x22yZw6MwUou3CYPDgC8l//jNtkzB8ZgJRdukwcHAN7L/3Gb7JkDY7CSC7fJgwMA7+X/uE32zIExWMmF2+TBAYD38n/cJnvmwBis5MJt8uAAwHv5P26TPXNgDFZy4TZ5cADgvfwft8meOTAGK7lwmzw4APBe/o/bZM8cGIOVXLhNHhwAeC//x22yZw6MwUou3CYPDgC8l//jNtkzB8ZgJRdukwcHAN7L/3Gb7JkDY7CSC7fJgwMA7+X/uE32zIExWMmF2+TBAYD38n/cJnvmwBis5MJt8uAAwHv5P26TPXNgDFZy4TZ5cADgvfwft8meOTAGK7lwmzw4APBe/o/bZM8cGIOVXLhNHhwAeC//x22yZw6MwUou3CYPDgC8l//jNtkzB8ZgJRdukwcHAN7L/3Gb7JkDY7CSC7fJgwMA7+X/uE32zIExWMmF2+TBAYD38n/cJnvmwBis5MJt8uAAwHv5P26TPXNgDFZy4TZ5cADgvfwft8meOTAGK7lwmzw4APBe/o/bZM8cGIOVXLhNHhwAeC//x22yZw6MwUou3Obn//3Ev+Crl3sA0OHX//+nWvbMgTFYyaBpkwfnja9e7gFAhwyaNtkzB8ZgJYOmTR6cN756uQcAHTJo2mTPHBiDlQyaNnlw3vjq5R4AdMigaZM9c2AMVjJo2uTBeeOrl3sA0CGDpk32zIExWMmgaZMH542vXu4BQIcMmjbZMwfGYCWDpk0enDe+erkHAB0yaNpkzxwYg5UMmjZ5cN746uUeAHTIoGmTPXNgDFYyaNrkwXnjq5d7ANAhg6ZN9syBMVjJoGmTB+eNr17uAUCHDJo22TMHxmAlg6ZNHpw3vnq5BwAdMmjaZM8cGIOVDJo2eXDe+OrlHgB0yKBpkz1zYAxWMmja5MF546uXewDQIYOmTfbMgTFYyaBpkwfnja9e7gFAhwyaNtkzB8ZgJYOmTR6cN756uQcAHTJo2mTPHBiDlQyaNnlw3vjq5R4AdMigaZM9c2AMVjJo2uTBeeOrl3sA0CGDpk32zIExWMmgaZMH542vXu4BQIcMmjbZMwfGYCWDpk0enDe+erkHAB0yaNpkzxwYg5UMmjZ5cN746uUeAHTIoGmTPXNgDFYyaNrkwXnjq5d7ANAhg6ZN9syBMVjJoGmTB+eNr17uAUCHDJo22TMHxmAlg6ZNHpw3vnq5BwAdMmjaZM8cGIOVDJo2eXDe+OrlHgB0yKBpkz1zYAxWMmja5MF546uXewDQIYOmTfbMgTFYyaBpkwfnja9e7gFAhwyaNtkzB8ZgJYOmTR6cN756uQcAHTJo2mTPHBiDlQyaNnlw3vjq5R4AdMigaZM9c2AMVjJo2uTBeeOrl3sA0CGDpk32zIExWMmgaZMH542vXu4BQIcMmjbZMwfGYCWDpk0enDe+erkHAB0yaNpkzxwYg5UMmjZ5cN746uUeAHTIoGmTPXNgDFYyaNrkwXnjq5d7ANAhg6ZN9syBMVjJoGmTB+eNr17uAUCHDJo22TMHxmAlg6ZNHpw3vnq5BwAdMmjaZM8cGIOVDJo2eXDe+OrlHgB0yKBpkz1zYAxWMmja5MF546uXewDQIYOmTfbMgTFYyaBpkwfnja9e7gFAhwyaNtkzB8ZgJYOmTR6cN756uQcAHTJo2mTPHBiDlQyaNnlw3vjq5R4AdMigaZM9c2AMVjJo2uTBeeOrl3sA0CGDpk32zIExWMmgaZMH542vXu4BQIcMmjbZMwfGYCWDpk0enDe+erkHAB0yaNpkzxwYg5UMmjZ5cN746uUeAHTIoGmTPXNgDFYyaNrkwXnjq5d7ANAhg6ZN9syBMVjJoGmTB+eNr17uAUCHDJo22TMHxmAlg6ZNHpw3vnq5BwAdMmjaZM8cGIOVDJo2eXDe+OrlHgB0yKBpkz1zYAxWMmja5MF546uXewDQIYOmTfbMgTFYyaBpkwfnja9e7gFAhwyaNtkzB8ZgJYOmTR6cN756uQcAHTJo2mTPHBiDlQyaNnlw3vjq5R4AdMigaZM9c2AMVjJo2uTBeeOrl3sA0CGDpk32zIExWMmgaZMH542vXu4BQIcMmjbZMwfGYCWDpk0enDe+erkHAB0yaNpkzxwYg5UMmjZ5cN746uUeAHTIoGmTPXNgDFYyaNrkwXnjq5d7ANAhg6ZN9syBMVjJoGmTB+eNr17uAUCHDJo22TMHxmAlg6ZNHpw3vnq5BwAdMmjaZM8cGIOVDJo2eXDe+OrlHgB0yKBpkz1zYAxWMmja5MF546uXewDQIYOmTfbMgTFYyaBpkwfnja9e7gFAhwyaNtkzB8ZgJYOmTR6cN756uQcAHTJo2mTPHBiDlQyaNnlw3vjq5R4AdMigaZM9c2AMVjJo2uTBeeOrl3sA0CGDpk32zIExWMmgaZMH542vXu4BQIcMmjbZMwfGYCWDpk0enDe+erkHAB0yaNpkzxwYg5UMmjZ5cN746uUeAHTIoGmTPXNgDFYyaNrkwXnjq5d7ANAhg6ZN9syBMVjJoGmTB+eNr17uAUCHDJo22TMHxmAlg6ZNHpw3vnq5BwAdMmjaZM8cGIOVDJo2eXDe+OrlHgB0yKBpkz1zYAxWMmja5MF546uXewDQIYOmTfbMgTFYyaBpkwfnja9e7gFAhwyaNtkzB8ZgJYOmTR6cN756uQcAHTJo2mTPHBiDlQyaNnlw3vjq5R4AdMigaZM9c2AMVjJo2uTBeeOrl3sA0CGDpk32zIExWMmgaZMH542vXu4BQIcMmjbZMwfGYCWDpk0enDe+erkHAB0yaNpkzxwYg5UMmjZ5cN746uUeAHTIoGmTPXNgDFYyaNrkwXnjq5d7ANAhg6ZN9syBMVjJoGmTB+eNr17uAUCHDJo22TMHxmAlg6ZNHpw3vnq5BwAdMmjaZM8cGIOVDJo2eXDe+OrlHgB0yKBpkz1zYAxWMmja5MF546uXewDQIYOmTfbMgTFYyaBpkwfnja9e7gFAhwyaNtkzB8ZgJYOmTR6cN756uQcAHTJo2mTPHBiDlQyaNnlw3vjq5R4AdMigaZM9c2AMVjJo2uTBeeOrl3sA0CGDpk32zIExWMmgaZMH542vXu4BQIcMmjbZMwfGYCWDpk0enDe+erkHAB0yaNpkzxwYg5UMmjZ5cN746uUeAHTIoGmTPXNgDFYyaNrkwXnjq5d7ANAhg6ZN9syBMVjJoGmTB+eNr17uAUCHDJo22TMHxmAlg6ZNHpw3vnq5BwAdMmjaZM8cGIOVDJo2eXDe+OrlHgB0yKBpkz1zYAxWMmja5MF546uXewDQIYOmTfbMgTFYyaBpkwfnja9e7gFAhwyaNtkzB8ZgJYOmTR6cN756uQcAHTJo2mTPHBiDlQyaNnlw3vjq5R4AdMigaZM9c2AMVjJo2uTBeeOrl3sA0CGDpk32zIExWMmgaZMH542vXu4BQIcMmjbZMwfGYCWDpk0enDe+erkHAB0yaNpkzxwYg5UMmjZ5cN746uUeAHTIoGmTPXNgDFYyaNrkwXnjq5d7ANAhg6ZN9syBMVjJoGmTB+eNr17uAUCHDJo22TMHxmAlg6ZNHpw3vnq5BwAdMmjaZM8cGIOVDJo2eXDe+OrlHgB0yKBpkz1zYAxWMmja5MF546uXewDQIYOmTfbMgTFYyaBpkwfnja9e7gFAhwyaNtkzB8ZgJYOmTR6cN756uQcAHTJo2mTPHBiDlQyaNnlw3vjq5R4AdMigaZM9c2AMVjJo2uTBeeOrl3sA0CGDpk32zIExWMmgaZMH542vXu4BQIcMmjbZMwfGYCWDpk0enDe+erkHAB0yaNpkzxwYg5UMmjZ5cN746uUeAHTIoGmTPXNgDFYyaNrkwXnjq5d7ANAhg6ZN9syBMVjJoGmTB+eNr17uAUCHDJo22TMHxmAlg6ZNHpw3vnq5BwAdMmjaZM8cGIOVDJo2eXDe+OrlHgB0yKBpkz1zYAxWMmja5MF546uXewDQIYOmTfbMgTFYyaBpkwfnja9e7gFAhwyaNtkzB8ZgJYOmTR6cN756uQcAHTJo2mTPHBiDlQyaNnlw3vjq5R4AdMigaZM9c2AMVjJo2uTBeeOrl3sA0CGDpk32zIExWMmgaZMH542vXu4BQIcMmjbZMwfGYCWDpk0enDe+erkHAB0yaNpkzxwYg5UMmjZ5cN746uUeAHTIoGmTPXNgDFYyaNrkwXnjq5d7ANAhg6ZN9syBMVjJoGmTB+eNr17uAUCHDJo22TMHxmAlg6ZNHpw3vnq5BwAdMmjaZM8cGIOVDJo2eXDe+OrlHgB0yKBpkz1zYAxWMmja5MF546uXewDQIYOmTfbMgTFYyaBpkwfnja9e7gFAhwyaNtkzB8ZgJYOmTR6cN756uQcAHTJo2mTPHBiDlQyaNnlw3vjq5R4AdMigaZM9c2AMVjJo2uTBeeOrl3sA0CGDpk32zIExWMmgaZMH542vXu4BQIcMmjbZMwfGYCWDpk0enDe+erkHAB0yaNpkzxwYg5UMmjZ5cN746uUeAHTIoGmTPXNgDFYyaNrkBwUAyJ45MAYrGTRt8oMCAGTPHBiDlQyaNvlBAQCyZw6MwUoGTZv8oAAA2TMHxmAlg6ZNflAAgOyZA2OwkkHTJj8oAED2zIExWMmgaZMfFAAge+bAGKxk0LTJDwoAkD1zYAxWMmja5AcFAMieOTAGKxk0bfKDAgBkzxwYg5UMmjb5QQEAsmcOjMFKBk2b/KAAANkzB8ZgJYOmTX5QAIDsmQNjsJJB0yY/KABA9syBMVjJoGmTHxQAIHvmwBisZNC0yQ8KAJA9c2AMVjJo2uQHBQDInjkwBisZNG3ygwIAZM8cGIOVDJo2+UEBALJnDozBSgZNm/ygAADZMwfGYCWDpk1+UACA7JkDY7CSQdMmPygAQPbMgTFYyaBpkx8UACB75sAYrGTQtMkPCgCQPXNgDFYyaNrkBwUAyJ45MAYrGTRt8oMCAGTPHBiDlQyaNvlBAQCyZw6MwUoGTZv8oAAA2TMHxmAlg6ZNflAAgOyZA2OwkkHTJj8oAED2zIExWMmgaZMfFAAge+bAGKxk0LTJDwoAkD1zYAxWMmja5AcFAMieOTAGKxk0bfKDAgBkzxwYg5UMmjb5QQEAsmcOjMFKBk2b/KAAANkzB8ZgJYOmTX5QAIDsmQNjsJJB0yY/KABA9syBMVjJoGmTHxQAIHvmwBisZNC0yQ8KAJA9c2AMAADYGQMAAHbGAACAnTEAAGBnDAAA2BkDAAB2xgAAgJ0xAABgZwwAANgZAwAAdsYAAICdMQAAYGcMAADYGQMAAHbGAACAnTEAAGBnDAAA2BkDAAB2xgAAgJ0xAABg4W9SIbz0LnisIwAAAABJRU5ErkJggg==);
+            background-size: 100% 100%;
+        }
+
+        .toggle:checked + .slider:before {
+            transform: translateX(32px);
+        }
+
+        .button-m {
+            position: absolute;
+            left: 100px;
+            top: 20px;
+        }
+
+        .sunblak {
+            position: absolute;
+            left: 170px;
+            top: 6px;
+            color: rgb(107, 107, 107);
+        }
+
+        .container {
+            background-color: #414141;
+        }
+            @keyframes bounce {
+            0%,
+            100% {
+                translate: 0px 36px;
+            }
+            50% {
+                translate: 0px 46px;
+            }
+            }
+            @keyframes bounce2 {
+            0%,
+            100% {
+                translate: 0px 46px;
+            }
+            50% {
+                translate: 0px 56px;
+            }
+            }
+
+            @keyframes umbral {
+            0% {
+                stop-color: #d3a5102e;
+            }
+            50% {
+                stop-color: rgba(211, 165, 16, 0.519);
+            }
+            100% {
+                stop-color: #d3a5102e;
+            }
+        }
+            @keyframes partciles {
+            0%,
+            100% {
+                translate: 0px 16px;
+            }
+            50% {
+                translate: 0px 6px;
+            }
+        }
+        #particles {
+            animation: partciles 4s ease-in-out infinite;
+        }
+        #animatedStop {
+            animation: umbral 4s infinite;
+        }
+        #bounce {
+            animation: bounce 4s ease-in-out infinite;
+            translate: 0px 36px;
+        }
+        #bounce2 {
+            animation: bounce2 4s ease-in-out infinite;
+            translate: 0px 46px;
+            animation-delay: 0.5s;
+        }
+
+        .box-button {
+            width: 116px;            
+            text-align: center;
+            cursor: pointer;
+            border: 4px solid #1c5a1c;
+            background-color: #2d912d;
+            padding-bottom: 10px;
+            transition: 0.1s ease-in-out;
+            user-select: none;
+            white-space: nowrap;       
+            overflow: hidden;         
+            text-overflow: ellipsis;
+            }
+
+        .button {
+            background-color: #34b334;
+            border: 4px solid #38bd38;
+            padding: 3px 8px;
+            display: flex;
+            align-items: center;   
+            justify-content: center; 
+            height: 20px;    
+            color: #2e2e2e;
+            }
+
+        .button span {
+            font-size: 17px;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+            .box-button:active {
+            padding: 0;
+            margin-bottom: 10px;
+            transform: translateY(10px);
+            }
+
+            .han {
+                position: absolute;
+                top: 800px;
+                left: 100px;
+            }
+
+            .wse {
+                position: absolute;
+                left: -60px;
+                top: 130px;
+                z-index: 1;
+            }
+
+            .shapka {
+                position: absolute;
+                width: 1745px;
+                height: 66px;
+                box-shadow: 0 0 0 5px rgb(40, 40, 40); 
+            }
+            
+            .han {
+                position: absolute;
+                left: 300px;
+                z-index: 2;
+            }
+
+            .left-menu {
+                position: absolute;
+                background: #858585;
+                width: 200px;
+                height: 775px;
+                left: 5px;
+                top: 78px;
+                box-shadow: 0 0 0 6px rgb(95, 95, 95); 
+            }
+
+            .obwodka1 {
+                position: absolute;
+                width: 200px;
+                height: 5px;
+                background: #3b3b3b;
+                top: 78px;
+                left: 5px;
+
+            }
+
+            .obwodka2 {
+                position: absolute;
+                width: 5px;
+                height: 774px;
+                background: #3b3b3b;
+                top: 78px;
+                left: 5px;
+
+            }
+
+            .sunblak {
+                color: #303030;
+            }
+
+            .setting {
+                position: absolute;
+                top: 75px;
+                left: 30px;
+                z-index: 2;
+                font-size: 23px;
+                color: #272727;
+            }
+
+            #butt2 {
+                position: absolute;
+                top: 50px;
+                left: 0px;
+            }
+
+            .souds {
+                position: absolute;
+                top: 186px;
+                left: 110px;
+                z-index: 2;
+                color: #303030;
+            }
+
+            .emerald {
+                position: absolute;
+                top: 720px;
+                left: 327px;
+                width: 70px;
+                height: 70px;
+                z-index: 2;
+            }
+
+            .fon1 {
+                position: absolute;
+                width: 118px;
+                height: 100px;
+                background: #4eb031;
+                left: 303px;
+                top: 710px;
+                box-shadow: 0 0 0 3px #316e1e;
+            }
+
+        .box-button2 {
+            width: 157px;            
+            text-align: center;
+            cursor: pointer;
+            border: 4px solid #5a2c10;
+            background-color: #be5b1e;
+            padding-bottom: 10px;
+            transition: 0.1s ease-in-out;
+            user-select: none;
+            white-space: nowrap;       
+            overflow: hidden;         
+            text-overflow: ellipsis;
+            }
+
+        .box-button2:active {
+            padding: 0;
+            margin-bottom: 10px;
+            transform: translateY(10px);
+            }
+
+        .button2 {
+            background-color: #e7610e;
+            border: 4px solid #f36711;
+            padding: 3px 8px;
+            display: flex;
+            align-items: center;   
+            justify-content: center; 
+            height: 20px;    
+            color: #353535;
+            }
+
+        .button2 span {
+            font-size: 13px;
+            letter-spacing: 1px;
+            font-weight: 900;
+        }
+
+        .wan {
+            position: absolute;
+            left: 1200px;
+            top: -760px;
+        }
+
+                
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);  
+            z-index: 100;            
+            visibility: hidden;      
+            opacity: 0;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        
+        .overlay.open {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        
+        .admin {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #e0e0e0;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            z-index: 101;           
+            text-align: center;
+            width: 400px;
+            max-width: 90%;
+            height: 180px;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            font-family: 'Minecraft Rus', sans-serif; 
+        }
+
+        .admin.open {
+            visibility: visible;
+            opacity: 1;
+        }
+
+       
+        .close-btn {
+            margin-top: 15px;
+            padding: 5px 15px;
+            cursor: pointer;
+            background: #aaa;
+            border: 2px solid #666;
+            font-family: inherit;
+            position: absolute;
+            top: 180px;
+            left: 180px;
+        }
+
+        .telegram {
+            position: absolute;
+            text-decoration: none;
+            top: -5px;
+            left: -10px;
+            padding: 20px 20px;
+            color: #1e96be;
+        }
+
+        .box-button3 {
+            width: 157px;            
+            text-align: center;
+            cursor: pointer;
+            border: 4px solid #0f4455;
+            background-color: #187999;
+            padding-bottom: 10px;
+            transition: 0.1s ease-in-out;
+            user-select: none;
+            white-space: nowrap;       
+            overflow: hidden;         
+            text-overflow: ellipsis;
+            }
+
+        .box-button3:active {
+            padding: 0;
+            margin-bottom: 10px;
+            transform: translateY(10px);
+            }
+
+        .button3 {
+            background-color: #1e96be;
+            border: 4px solid #20a2cd;
+            padding: 3px 8px;
+            display: flex;
+            align-items: center;   
+            justify-content: center; 
+            height: 20px;    
+            color: #353535;
+            }
+
+        .button3 span {
+            font-size: 13px;
+            letter-spacing: 1px;
+            font-weight: 900;
+        }
+
+        .fan {
+            position: absolute;
+            left: 150px;
+            top: 115px;
+        }
+
+         .box-button4 {
+            width: 116px;            
+            text-align: center;
+            cursor: pointer;
+            border: 4px solid #4e472a;
+            background-color: #9c9057;
+            padding-bottom: 10px;
+            transition: 0.1s ease-in-out;
+            user-select: none;
+            white-space: nowrap;       
+            overflow: hidden;         
+            text-overflow: ellipsis;
+            }
+
+        .button4 {
+            background-color: #FCE78A;
+            border: 4px solid #fdea91;
+            padding: 3px 8px;
+            display: flex;
+            align-items: center;   
+            justify-content: center; 
+            height: 20px;    
+            color: #2e2e2e;
+            }
+
+        .button4 span {
+            font-size: 13px;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+            .box-button4:active {
+            padding: 0;
+            margin-bottom: 10px;
+            transform: translateY(10px);
+            }
+
+        .dan {
+            position: absolute;
+            left: 450px;
+            top: 800px;
+        }
+
+        .fon2 {
+            position: absolute;
+            width: 118px;
+            height: 100px;
+            background: #ffe77c;
+            left: 453px;
+            top: 710px;
+            box-shadow: 0 0 0 3px #8c7c34;
+        }
+
+
+        .tiny_takeover {
+            position: absolute;
+            width: 660px;
+            height: 380px;
+            left: 285px;
+            top: 120px;
+            border: 4px solid rgba(91, 91, 91, 0.5);
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.6);
+        }
+
+        .chaos_cubed {
+            position: absolute;
+            width: 660px;
+            height: 380px;
+            left: 985px;
+            top: 120px;
+            border: 4px solid rgba(91, 91, 91, 0.5);
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.6);
+        }
+
+        .tiny {
+            position: absolute;
+            top: -670px;
+            left: -150px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 1000;
+            transition: transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .tiny:hover,
+        .cellof:hover,
+        .chaos:hover {
+            transform: scale(1.1);
+        }
+
+        .fontext1 {
+            position: absolute;
+            width: 145px;
+            height: 30px;
+            background: #c113b8;
+            left: 295px;
+            top: 125px;
+            box-shadow: 0 0 0 3px rgb(126, 11, 146);
+        }
+
+        .fontext2 {
+            position: absolute;
+            width: 125px;
+            height: 30px;
+            background: #0da41d;
+            left: 820px;
+            top: 125px;
+            box-shadow: 0 0 0 3px rgb(39, 108, 16);
+        }
+
+        .text1 {
+            position: absolute;
+            top: -685px;
+            left: 380px;
+            font-weight: 1000px;
+            color: #ffffff;
+        }
+
+        .cellof {
+            position: absolute;
+            top: -743px;
+            left: 455px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .fontext3 {
+            position: absolute;
+            width: 135px;
+            height: 40px;
+            background: #313234;
+            left: 895px;
+            top: 50px;
+            box-shadow: 0 30px 30px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 0 3px rgb(74, 74, 74);
+        }
+
+        .text2 {
+            position: absolute;
+            top: -685px;
+            left: 1060px;
+            color: #ffffff;
+        }
+
+        .fontext4 {
+            position: absolute;
+            width: 140px;
+            height: 30px;
+            background: #0ebded;
+            left: 1505px;
+            top: 125px;
+            box-shadow: 0 0 0 3px rgb(29, 133, 159);
+        }
+
+        .chaos {
+            position: absolute;
+            top: -670px;
+            left: 550px;
+            color: #ffffff;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .fontext5 {
+            position: absolute;
+            width: 140px;
+            height: 30px;
+            background: #9b1616;
+            left: 992px;
+            top: 125px;
+            box-shadow: 0 0 0 3px rgb(112, 13, 13);
+        }
+
+        .button-mn {
+            position: absolute;
+            top: 250px;
+            z-index: 2;
+            left: 40px;
+        }
+
+        .music {
+            position: absolute;
+            top: 235px;
+            z-index: 2;
+            left: 110px;
+            color: #2f2f2f;
+        }
+
+        .art1 {
+            position: absolute;
+            width: 75px;
+            height: 75px;
+            top: 717px;
+            left: 475px;
+            z-index: 2;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 1);
+        }
+
+
+            
+    </style>
+</head>
+<body>
+    <p class="souds">Звук</p>
+    <p class="setting" >Настройки</p>
+    <div class="wse">
+        <p class="sunblak" >Тема</p>
+        <div class="button-m">
+            <label class="switch">
+                <input class="toggle" id="themeToggle" type="checkbox" />
+                <span class="slider"></span>
+                <span class="card-side"></span>
+            </label>
+
+            <div id="butt2" class="button-m" >
+                <label class="switch">
+                    <input class="toggle" id="soundToggle" type="checkbox" checked />
+                    <span class="slider"></span>
+                    <span class="card-side"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+        <p class="music">Музыка</p>
+        <div class="button-mn">
+            <label class="switch">
+                <input class="toggle" id="musicToggle" type="checkbox" />
+                <span class="slider"></span>
+                <span class="card-side"></span>
+            </label>
+        </div>
+
+    <div class="han">
+        <div class="box-button">
+            <div class="button"><span>Торговля</span></div>
+        </div>
+        <div class="wan">
+            <div class="box-button2">
+                <div class="button2"><span>Написать автару</span></div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="image">
+        <img class="emerald" src="images/emerald.png" alt="Изумруд">
+        <img class="shapka" src="images/hewn.png" alt="Шапка сайта">
+        <img class="tiny_takeover" src="images/Tiny Takeover.jpg" alt="Tiny Takeover">
+        <img class="chaos_cubed" src="images/Chaos Cubed.jpg" alt="Chaos Cubed">
+        <img class="art1" src="images/art1.png" alt="Арт">
+    </div>
+
+    <div class="left-menu" ></div>
+    <div class="obwodka1"></div>
+    <div class="obwodka2"></div>
+    <div class="fon1"></div>
+    <div class="fon2"></div>
+    <div class="fontext1"></div>
+    <div class="fontext2"></div>
+    <div class="fontext3"></div>
+    <div class="fontext4"></div>
+    <div class="fontext5"></div>
+
+    
+    <div class="overlay" id="overlay"></div>
+    <div class="admin" id="adminModal">
+        <h2>Написать автару</h2>
+        <div class="fan">
+            <div class="box-button3">
+                <a class="telegram" href="https://t.me/FleysSeseN1_Programming" target="_blank" rel="noopener noreferrer">.....................................</a>
+                    <div class="button3"><span>Телеграмм</span></div>
+        </div>
+                
+            </div>
+        <button class="close-btn" id="closeModal">Закрыть</button>
+    </div>
+    <div class="dan">
+        <div class="box-button4 dol"> 
+               <div class="button4"><span>Арты</span></div>
+    </div>
+
+    <a class="tiny" href="">Tiny Takeover</a>
+    <a class="cellof" href="">Обновления</a>
+    <a class="chaos" href="">Chaos Cubed</a>
+    <p class="text1" >Последнее</p>
+    <p class="text2">Предстоящее</p>
+
+
+
+<script>
+    const switchSound = new Audio('sounds/click1.mp3');
+    switchSound.preload = 'auto';
+
+    const buttonSound = new Audio('sounds/click2.mp3');
+    buttonSound.preload = 'auto';
+
+    const soundToggleSound = new Audio('sounds/click-toggle.mp3');
+    soundToggleSound.preload = 'auto';
+
+    const authorButtonSound = new Audio('sounds/click3.mp3');
+    authorButtonSound.preload = 'auto';
+
+    let soundEnabled;
+    function playSound(audio) {
+        if (soundEnabled) {
+            audio.currentTime = 0;
+            audio.play();
+        }
+    }
+
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('change', function() {
+        playSound(switchSound);
+        if (themeToggle.checked) {
+            document.body.classList.remove('light-theme');
+        } else {
+            document.body.classList.add('light-theme');
+        }
+    });
+
+    const soundToggle = document.getElementById('soundToggle');
+    soundEnabled = soundToggle.checked;
+    soundToggle.addEventListener('change', function() {
+        soundEnabled = soundToggle.checked;
+        if (soundEnabled) {
+            soundToggleSound.currentTime = 0;
+            soundToggleSound.play();
+        }
+    });
+
+    const musicAudio = new Audio('sounds/music.mp3');
+    musicAudio.preload = 'auto';
+    musicAudio.loop = true;
+
+    const musicToggle = document.getElementById('musicToggle');
+    musicToggle.addEventListener('change', function() {
+        playSound(switchSound);  
+        if (musicToggle.checked) {
+            musicAudio.currentTime = 0;
+            musicAudio.play();
+        } else {
+            musicAudio.pause();
+            musicAudio.currentTime = 0;
+        }
+    });
+
+    const newButton = document.querySelector('.box-button');
+    newButton.addEventListener('click', function() {
+        playSound(buttonSound);
+    });
+
+    const authorButton = document.querySelector('.box-button2');
+    authorButton.addEventListener('click', function() {
+        playSound(authorButtonSound);
+        overlay.classList.add('open');
+        adminModal.classList.add('open');
+    });
+
+    const overlay = document.getElementById('overlay');
+    const adminModal = document.getElementById('adminModal');
+    const closeModalBtn = document.getElementById('closeModal');
+
+    closeModalBtn.addEventListener('click', function() {
+        overlay.classList.remove('open');
+        adminModal.classList.remove('open');
+    });
+    overlay.addEventListener('click', function() {
+        overlay.classList.remove('open');
+        adminModal.classList.remove('open');
+    });
+
+
+    const dolButtons = document.querySelectorAll('.dol');
+    dolButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            playSound(buttonSound);
+        });
+    });
+
+    document.body.classList.add('light-theme');
+</script>
+</body>
+</html>
