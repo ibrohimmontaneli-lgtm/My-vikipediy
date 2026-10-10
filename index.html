@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тест №7</title>
+    <title>Майнкрафт википедия</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
         @font-face {
@@ -14,34 +15,28 @@
         }
 
 
-        body {
+            body {
             font-family: 'Minecraft Rus', sans-serif;
             text-rendering: optimizeSpeed;
             -webkit-font-smoothing: none;
             -moz-osx-font-smoothing: none;
             background: linear-gradient(to right, rgb(21, 21, 21), rgb(28, 28, 28));
-            position: relative;
             min-height: 100vh;
             margin: 0;
+        
         }
 
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, rgb(189, 189, 189), rgb(179, 179, 179));
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.8s ease;   
-        }
+body {
+    background-image: url('images/fon.png'); /* путь к картинке */
+    background-size: cover;        /* растянуть, чтобы заполнить весь экран */
+    background-position: center;   /* центрировать картинку */
+    background-repeat: no-repeat;  /* не размножать плиткой */
+    background-attachment: fixed;  /* фон не двигается при прокрутке (опционально) */
+}
 
         body.light-theme::before {
             opacity: 1;
         }
-
         .switch {
             position: relative;
             display: flex;
@@ -180,7 +175,7 @@
 
         .button {
             background-color: #34b334;
-            border: 4px solid #38bd38;
+            border: 4px solid #3cca3c;
             padding: 3px 8px;
             display: flex;
             align-items: center;   
@@ -227,35 +222,8 @@
                 z-index: 2;
             }
 
-            .left-menu {
-                position: absolute;
-                background: #858585;
-                width: 200px;
-                height: 775px;
-                left: 5px;
-                top: 78px;
-                box-shadow: 0 0 0 6px rgb(95, 95, 95); 
-            }
 
-            .obwodka1 {
-                position: absolute;
-                width: 200px;
-                height: 5px;
-                background: #3b3b3b;
-                top: 78px;
-                left: 5px;
 
-            }
-
-            .obwodka2 {
-                position: absolute;
-                width: 5px;
-                height: 774px;
-                background: #3b3b3b;
-                top: 78px;
-                left: 5px;
-
-            }
 
             .sunblak {
                 color: #303030;
@@ -472,8 +440,8 @@
             }
 
         .button4 {
-            background-color: #FCE78A;
-            border: 4px solid #fdea91;
+            background-color: #f0d86f;
+            border: 4px solid #ffea8b;
             padding: 3px 8px;
             display: flex;
             align-items: center;   
@@ -511,62 +479,22 @@
         }
 
 
-        .tiny_takeover {
+       .Wilderness-Bound-img {
             position: absolute;
             width: 660px;
             height: 380px;
-            left: 285px;
-            top: 120px;
-            border: 4px solid rgba(91, 91, 91, 0.5);
-            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.6);
+            border: 4px solid #873215;
         }
 
-        .chaos_cubed {
+        .Fourth-drop-2026-img {
             position: absolute;
             width: 660px;
             height: 380px;
-            left: 985px;
-            top: 120px;
-            border: 4px solid rgba(91, 91, 91, 0.5);
-            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.6);
+            border: 4px solid#6c7dad
         }
 
-        .tiny {
-            position: absolute;
-            top: -670px;
-            left: -150px;
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 1000;
-            transition: transform 0.2s ease;
-            display: inline-block;
-        }
 
-        .tiny:hover,
-        .cellof:hover,
-        .chaos:hover {
-            transform: scale(1.1);
-        }
 
-        .fontext1 {
-            position: absolute;
-            width: 145px;
-            height: 30px;
-            background: #c113b8;
-            left: 295px;
-            top: 125px;
-            box-shadow: 0 0 0 3px rgb(126, 11, 146);
-        }
-
-        .fontext2 {
-            position: absolute;
-            width: 125px;
-            height: 30px;
-            background: #0da41d;
-            left: 820px;
-            top: 125px;
-            box-shadow: 0 0 0 3px rgb(39, 108, 16);
-        }
 
         .text1 {
             position: absolute;
@@ -586,33 +514,7 @@
             display: inline-block;
         }
 
-        .fontext3 {
-            position: absolute;
-            width: 135px;
-            height: 40px;
-            background: #313234;
-            left: 895px;
-            top: 50px;
-            box-shadow: 0 30px 30px rgba(0, 0, 0, 0.6);
-            box-shadow: 0 0 0 3px rgb(74, 74, 74);
-        }
 
-        .text2 {
-            position: absolute;
-            top: -685px;
-            left: 1060px;
-            color: #ffffff;
-        }
-
-        .fontext4 {
-            position: absolute;
-            width: 140px;
-            height: 30px;
-            background: #0ebded;
-            left: 1505px;
-            top: 125px;
-            box-shadow: 0 0 0 3px rgb(29, 133, 159);
-        }
 
         .chaos {
             position: absolute;
@@ -654,45 +556,1556 @@
             position: absolute;
             width: 75px;
             height: 75px;
-            top: 717px;
-            left: 475px;
+            top: -83px;
+            left: 25px;
             z-index: 2;
             box-shadow: 0 0 0 3px rgba(255, 255, 255, 1);
         }
 
 
-            
+        .fullscreen-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f0f0f0;          
+            z-index: 200;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            overflow-y: auto;             
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fullscreen-modal.open {
+            visibility: visible;
+            opacity: 1;
+        }
+
+
+        .arts-content {
+            text-align: center;
+            color: #222;
+            font-family: 'Minecraft Rus', sans-serif;
+            padding: 20px;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+        }
+
+        .clos-btn-2 {
+            margin-top: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background: #aaa;
+            border: 2px solid #666;
+            font-family: inherit;
+            position: absolute;
+            top: 4629px;
+            left: 803px;
+            font-weight: 800;
+            color: #3a3a3a;
+            font-size: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .tca {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: relative;
+            z-index: 2;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card {
+            position: absolute;
+            width: 660px;
+            height: 380px;
+            top: 120px;
+            left: 90px;
+            padding: 5px;
+            overflow: hidden;
+            background: #111;
+            transition: transform 0.3s ease; 
+        }
+
+        .card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 200%;
+            height: 200%;
+
+            top: -50%;
+            left: -50%;
+
+            background: conic-gradient(
+                #912929,
+                #8a4444,
+                #912929,
+                #b53b3b,
+                #511615,
+                #8e0c0c,
+                #912929,
+                #ff0000
+            );
+
+            animation: rotateGradient 4s linear infinite;
+
+            z-index: 0;
+        }
+
+        .card::after {
+            content: "";
+
+            position: absolute;
+
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+
+            background: #111;
+
+            z-index: 1;
+        }
+
+        .card img {
+            position: relative;
+            display: block;
+
+            width: 100%;
+            height: 100%;
+
+            z-index: 2;
+        }
+
+        @keyframes rotateGradient {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }  
+
+        .obn-btn {
+            margin-top: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background: #212121;
+            border: 2px solid #3d3d3d;
+            font-family: inherit;
+            position: absolute;
+            top: -760px;
+            left: 435px;
+            font-weight: 800;
+            color: #d3d3d3;
+            font-size: 15px;
+            transition: transform 0.2s ease;  
+            display: inline-block; 
+        }
+
+    .obn-btn:hover {
+        transform: translateY(-7px);
+    }
+
+    .arts-h1 {
+        position: absolute;
+        color: #2b2b2b;
+        z-index: 3;
+        top: 0px;
+        left: 800px;
+    }
+
+            .tit {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: relative;
+            z-index: 2;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card1 {
+            position: absolute;
+            width: 660px;
+            height: 380px;
+            top: 120px;
+            left: 930px;
+            padding: 5px;
+            overflow: hidden;
+            background: #111;
+            transition: transform 0.3s ease; 
+        }
+
+        .card1::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: conic-gradient(
+                #c1be26,
+                #bfbc0c,
+                #e5c912,
+                #c8b539,
+                #ccc927,
+                #dbd71a,
+                #c5c22b,
+                #fffb00
+            );
+
+            animation: rotateGradient 4s linear infinite;
+
+            z-index: 0;
+        }
+
+        .card1::after {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            background: #111;
+            z-index: 1;
+        }
+
+        .card1 img {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+    .card:hover,
+    .card1:hover,
+    .card2:hover,
+    .card3:hover,
+    .card4:hover,
+    .card5:hover,
+    .clos-btn-2:hover,
+    .card6:hover {
+        transform: translateY(-9px);
+    }
+
+    .dowlaud1 {
+        margin-top: 5px;
+        padding: 8px 10px;
+        cursor: pointer;
+        background: #edcb24;
+        border: 3px solid #826e0a;
+        font-family: inherit;
+        position: absolute;
+        font-weight: 600;
+        color: #3f3f3f;
+        font-size: 17px;
+        display: inline-block; 
+        z-index: 20;
+        left: 5px;
+        top: 0px;
+    }
+
+    .fullscreen-modal {
+        background-image: url('images/art-fon.PNG');
+        background-size: cover;
+        background-position: center; 
+        background-repeat: no-repeat;
+    }
+
+    .dowlaud2 {
+        margin-top: 5px;
+        padding: 8px 10px;
+        cursor: pointer;
+        background: #c51313;
+        border: 3px solid #772a2a;
+        font-family: inherit;
+        position: absolute;
+        font-weight: 600;
+        color: #e0e0e0;
+        font-size: 17px;
+        display: inline-block; 
+        z-index: 20;
+        left: 5px;
+        top: 0px;
+    }
+
+        .text3{
+            margin-top: 5px;
+            padding: 8px 10px;
+            background: #ed24ed;
+            border: 3px solid #781378;
+            font-family: inherit;
+            position: absolute;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 17px;
+            display: inline-block; 
+            z-index: 20;
+            left: 493px;
+            top: 0px;
+        }
+
+        .text4 {
+            margin-top: 5px;
+            padding: 8px 10px;
+            background: #1d9000;
+            border: 3px solid #0e4800;
+            font-family: inherit;
+            position: absolute;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 17px;
+            display: inline-block; 
+            z-index: 20;
+            left: 478px;
+            top: 0px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        
+        .ccj {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: relative;
+            z-index: 2;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card2 {
+            position: absolute;
+            width: 660px;
+            height: 380px;
+            top: 620px;
+            left: 930px;
+            padding: 5px;
+            overflow: hidden;
+            background: #111;
+            transition: transform 0.3s ease; 
+        }
+
+        .card2::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: conic-gradient(
+                #E1CC9D,
+                #baa471,
+                #dbbb77,
+                #ffe4a9,
+                #b5a178,
+                #f0d59e,
+                #d4b779,
+                #ffe5ae
+            );
+
+            animation: rotateGradient 4s linear infinite;
+
+            z-index: 0;
+        }
+
+        .card2::after {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            background: #111;
+            z-index: 1;
+        }
+
+        .card2 img {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .dowlaud3 {
+            margin-top: 5px;
+            padding: 8px 10px;
+            cursor: pointer;
+            background: #f5d590;
+            border: 3px solid #6e634c;
+            font-family: inherit;
+            position: absolute;
+            font-weight: 600;
+            color: #3f3f3f;
+            font-size: 17px;
+            display: inline-block; 
+            z-index: 20;
+            left: 5px;
+            top: 0px;
+        }
+
+
+        .text5 {
+            margin-top: 5px;
+            padding: 8px 10px;
+            background: #cf0707;
+            border: 3px solid #7f0202;
+            font-family: inherit;
+            position: absolute;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 17px;
+            display: inline-block; 
+            z-index: 20;
+            left: 508px;
+            top: 0px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .stl {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: relative;
+            z-index: 2;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card3 {
+            position: absolute;
+            width: 660px;
+            height: 380px;
+            top: 620px;
+            left: 90px;
+            padding: 5px;
+            overflow: hidden;
+            background: #111;
+            transition: transform 0.3s ease; 
+        }
+
+        .card3::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: conic-gradient(
+                hsl(182, 36%, 59%),
+                hsl(182, 31%, 62%),
+                hsl(182, 100%, 79%),
+                hsl(182, 84%, 70%),
+                hsl(182, 55%, 52%),
+                hsl(182, 100%, 84%),
+                hsl(182, 55%, 54%),
+                hsl(182, 49%, 69%)
+            );
+
+            animation: rotateGradient 4s linear infinite;
+
+            z-index: 0;
+        }
+
+        .card3::after {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            background: #111;
+            z-index: 1;
+        }
+
+        .card3 img {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .dowlaud4 {
+            margin-top: 5px;
+            padding: 8px 10px;
+            cursor: pointer;
+            background: hsl(182, 36%, 59%);
+            border: 3px solid hsl(182, 24%, 42%);
+            font-family: inherit;
+            position: absolute;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 17px;
+            display: inline-block; 
+            z-index: 20;
+            left: 5px;
+            top: 0px;
+        }
+
+
+        .text6 {
+            margin-top: 5px;
+            padding: 8px 10px;
+            background: #b7b713;
+            border: 3px solid #77770e;
+            font-family: inherit;
+            position: absolute;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 17px;
+            display: inline-block; 
+            z-index: 20;
+            left: 502px;
+            top: 0px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        
+        .mom {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: relative;
+            z-index: 2;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card4 {
+            position: absolute;
+            width: 660px;
+            height: 380px;
+            top: 1120px;
+            left: 90px;
+            padding: 5px;
+            overflow: hidden;
+            background: #111;
+            transition: transform 0.3s ease; 
+        }
+
+        .card4::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: conic-gradient(
+                #8aa803,
+                #8faa1a,
+                #d4ff12,
+                #9EBF0A,
+                #9EBF0A,
+                #d4ff12,
+                #cdf712,
+                #bae013
+            );
+
+            animation: rotateGradient 4s linear infinite;
+
+            z-index: 0;
+        }
+
+        .card4::after {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            background: #111;
+            z-index: 1;
+        }
+
+        .card4 img {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .dowlaud5 {
+            margin-top: 5px;
+            padding: 8px 10px;
+            cursor: pointer;
+            background: #799306;
+            border: 3px solid #4e5f03;
+            font-family: inherit;
+            position: absolute;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 17px;
+            display: inline-block; 
+            z-index: 20;
+            left: 5px;
+            top: 0px;
+        }
+
+
+        .text7 {
+            margin-top: 5px;
+            padding: 8px 10px;
+            background: #408765;
+            border: 3px solid #295640;
+            font-family: inherit;
+            position: absolute;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 17px;
+            display: inline-block; 
+            z-index: 20;
+            left: 459px;
+            top: 0px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        #tradeModal {
+            background-image: none;
+            background-color: #1f0f4d; 
+        }
+
+        #tradeCloseBtn {
+            position: absolute;
+            left: 800px;
+        }
+
+        .cts {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: relative;
+            z-index: 2;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card5 {
+            position: absolute;
+            width: 660px;
+            height: 380px;
+            top: 1120px;
+            left: 930px;
+            padding: 5px;
+            overflow: hidden;
+            background: #111;
+            transition: transform 0.3s ease; 
+        }
+
+        .card5::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: conic-gradient(
+                #FF742F,
+                #ed834e,
+                #FF742F,
+                #ff8e56,
+                #f86922,
+                #c3683a,
+                #ae5d35,
+                #ff925b
+            );
+
+            animation: rotateGradient 4s linear infinite;
+
+            z-index: 0;
+        }
+
+        .card5::after {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            background: #111;
+            z-index: 1;
+        }
+
+        .card5 img {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .dowlaud6 {
+            margin-top: 5px;
+            padding: 8px 10px;
+            cursor: pointer;
+            background: #FF742F;
+            border: 3px solid #a74e22;
+            font-family: inherit;
+            position: absolute;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 17px;
+            display: inline-block; 
+            z-index: 20;
+            left: 5px;
+            top: 0px;
+        }
+
+
+        .text8 {
+            margin-top: 5px;
+            padding: 8px 10px;
+            background: #FEBD59;
+            border: 3px solid #a77c3c;
+            font-family: inherit;
+            position: absolute;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 17px;
+            display: inline-block; 
+            z-index: 20;
+            left: 459px;
+            top: 0px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .forget {
+            position: absolute;
+            top: 4700px;
+            font-weight: 700;
+            left: 770px;
+            margin-top: 5px;
+            padding: 8px 10px;
+            background: #837e76;
+            border: 3px solid #4c4944;
+            font-family: inherit;
+            position: absolute;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 17px;
+            display: inline-block; 
+            z-index: 20;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .tga {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card6 {
+            position: absolute;
+            width: 660px;
+            height: 380px;
+            top: 1620px;
+            left: 930px;
+            padding: 5px;
+            overflow: hidden;
+            background: #111;
+            transition: transform 0.3s ease; 
+        }
+
+        .card6::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: conic-gradient(
+                #463430,
+                #6d514a,
+                #3d2b27,
+                #735953,
+                #463430,
+                #432e29,
+                #4b3e3b,
+                #835f57
+            );
+
+            animation: rotateGradient 4s linear infinite;
+
+            z-index: 0;
+        }
+
+        .card6::after {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            background: #111;
+            z-index: 1;
+        }
+
+        .card6 img {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .dowlaud7 {
+            margin-top: 5px;
+            padding: 8px 10px;
+            cursor: pointer;
+            background: #463430;
+            border: 3px solid #2e221f;
+            font-family: inherit;
+            position: absolute;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 17px;
+            display: inline-block; 
+            z-index: 20;
+            left: 5px;
+            top: 0px;
+        }
+
+
+        .text9 {
+            margin-top: 5px;
+            padding: 8px 10px;
+            background: #EF6F0E;
+            border: 3px solid #b2530a;
+            font-family: inherit;
+            position: absolute;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 17px;
+            display: inline-block; 
+            z-index: 20;
+            left: 430px;
+            top: 0px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Кнопка-иконка (триггер) */
+.settings-icon {
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    width: 50px;          /* подберите размер под свою иконку */
+    height: 50px;
+    cursor: pointer;
+    z-index: 300;
+    transition: transform 0.2s ease;
+}
+.settings-icon:hover {
+    transform: translateY(-9px);
+}
+
+/* Выдвижная панель */
+.settings-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;         /* чуть шире меню */
+    height: 100vh;
+    background: #858585;
+    box-shadow: 6px 0 0 0 rgb(95, 95, 95);  /* имитация рамки как у left-menu */
+    z-index: 250;
+    transform: translateX(-100%);           /* скрыто за левым краем */
+    transition: transform 0.3s ease;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #272727;
+    font-family: 'Minecraft Rus', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+/* Показать панель */
+.settings-panel.open {
+    transform: translateX(0);
+}
+
+/* Заголовок */
+.settings-title {
+    font-size: 23px;
+    margin: 0;
+}
+
+/* Один блок настройки (подпись + переключатель) */
+.setting-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.setting-label {
+    min-width: 70px;
+    color: #303030;
+}
+
+
+
+/* Иконка-триггер (открыть настройки) */
+.settings-icon {
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 300;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+}
+.settings-icon:hover {
+    transform: rotate(180deg) scale(1.1);   /* поворот на 90° при наведении */
+}
+.settings-icon:active {
+    transform: rotate(190deg) scale(0.95); /* ещё сильнее при клике */
+}
+
+/* Когда панель открыта – триггер скрывается */
+.settings-icon.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Иконка закрытия внутри панели */
+.close-settings-icon {
+    width: 39px;
+    height: 39px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    margin-right: 0px;  /* отступ от края панели */
+}
+
+#extraSettingsModal {
+    background-image: none;
+    background-color: #434343;   /* или любой другой цвет / картинку */
+}
+
+
+
+        #extraSettingsCloseBtn {
+            position: absolute;
+            top: 700px;      /* замените на нужное */
+            left: 800px;     /* замените на нужное */
+        }
+
+        /* Обёртка для громкости */
+#volumeSlider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 530px;
+    height: 19px;
+    background: #4a4a4a;
+    border: 2px solid #2c2c2c;
+    image-rendering: pixelated;
+    outline: none;
+    cursor: pointer;
+    position: absolute;
+    top: 145px;
+    left: 700px;
+    z-index: 4;
+}
+
+/* Бегунок для Chrome, Safari, Edge */
+#volumeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 29px;
+    height: 29px;
+    background: #ccc;
+    border: 2px solid #666;
+    image-rendering: pixelated;
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.4), inset -2px -2px 0 rgba(0,0,0,0.3);
+    margin-top: -5px;              /* выравниваем по центру */
+}
+
+/* Бегунок для Firefox */
+#volumeSlider::-moz-range-thumb {
+    width: 18px;
+    height: 22px;
+    background: #ccc;
+    border: 2px solid #666;
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.4), inset -2px -2px 0 rgba(0,0,0,0.3);
+    border-radius: 0;
+    /* Firefox сам центрирует, но можно подкорректировать */
+}
+
+        #grum-music {
+            position: absolute;
+            top: 130px;
+            left: 500px;
+        }
+
+        #dop-settings {
+            position: absolute;
+            top: 0px;
+            left: 580px;
+        }
+
+#soundVolumeSlider {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 19px;
+    width: 530px;
+    background: #4a4a4a;
+    border: 2px solid #2c2c2c;
+    image-rendering: pixelated;
+    outline: none;
+    cursor: pointer;
+    position: absolute;
+    top: 224px;
+    left: 700px;
+    z-index: 4;
+}
+#soundVolumeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 29px;
+    height: 29px;
+    background: #ccc;
+    border: 2px solid #666;
+    image-rendering: pixelated;
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.4), inset -2px -2px 0 rgba(0,0,0,0.3);
+    margin-top: -5px;
+}
+#soundVolumeSlider::-moz-range-thumb {
+    width: 18px;
+    height: 22px;
+    background: #ccc;
+    border: 2px solid #666;
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.4), inset -2px -2px 0 rgba(0,0,0,0.3);
+}
+
+    #grom-sounds {
+        position: absolute;
+        top: 190px;
+        left: 500px;
+
+    }
+
+    .music-mode-section {
+    margin-top: 20px;
+}
+.mode-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+.mode-btn {
+    background: #4a4a4a;
+    border: 2px solid #2c2c2c;
+    color: #e0e0e0;
+    font-family: 'Minecraft Rus', sans-serif;
+    font-size: 14px;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+    image-rendering: pixelated;
+}
+.mode-btn.active {
+    background: #6a6a6a;      
+    border-color: #8a8a8a;
+}
+.mode-btn:hover {
+    background: #5a5a5a;
+}
+.mc-select {
+    background: #4a4a4a;
+    border: 2px solid #2c2c2c;
+    color: #e0e0e0;
+    font-family: 'Minecraft Rus', sans-serif;
+    font-size: 14px;
+    padding: 4px 10px;
+    cursor: pointer;
+    image-rendering: pixelated;
+    outline: none;
+}
+
+
+/* From Uiverse.io by arthur_6104 */ 
+.box-button-9 {
+  cursor: pointer;
+  border: 4px solid #454027;
+  background-color: #595852;
+  padding-bottom: 10px;
+  transition: 0.1s ease-in-out;
+  user-select: none;
+}
+
+        .button-9 {
+            background-color: #828077;
+            border: 4px solid #949288;
+            padding: 3px 8px;
+            display: flex;
+            align-items: center;   
+            justify-content: center; 
+            height: 20px; 
+            width: 93px;   
+            color: #2e2e2e;
+            }
+
+.button-9 span {
+  font-size: 1.2em;
+  letter-spacing: 1px;
+}
+
+.box-button-9:active {
+  padding: 0;
+  margin-bottom: 10px;
+  transform: translateY(10px);
+}
+
+.btn-9 {
+    position: absolute;
+    top: 0px;
+    left: 137px;
+    z-index: 3;
+}
+
+.fon-tuff-bricks {
+    position: absolute;
+    width: 118px;
+    height: 96px;
+    background: #74736b;
+    box-shadow: 0 0 0 3px #575650;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -90px;
+    left: 140px;
+
+}       
+
+        .tuff-bricks {
+            position: absolute;
+            width: 75px;
+            height: 75px;
+
+        }
+
+        .btn-9-card {
+            position: absolute;
+            top: 0px;
+        }
+
+        /* Общие стили для контейнеров кнопок */
+.box-random,
+.box-select {
+    width: 116px;
+    text-align: center;
+    cursor: pointer;
+    padding-bottom: 10px;
+    transition: 0.1s ease-in-out;
+    user-select: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+/* ---- Рандом (зелёный) ---- */
+.box-random {
+    border: 4px solid #1c5a1c;
+    background-color: #2d912d;
+}
+.btn-random {
+    background-color: #34b334;
+    border: 4px solid #38bd38;
+    padding: 3px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    color: #2e2e2e;
+}
+.btn-random span {
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* ---- Выбор (синий) ---- */
+.box-select {
+    border: 4px solid #0f4455;
+    background-color: #187999;
+}
+.btn-select {
+    background-color: #1e96be;
+    border: 4px solid #20a2cd;
+    padding: 3px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    color: #2e2e2e;
+}
+.btn-select span {
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* Активное состояние (светлее) */
+.box-random.active {
+    background-color: #3aa63a;
+    border-color: #2d7a2d;
+}
+.box-select.active {
+    background-color: #2099b8;
+    border-color: #156f8a;
+}
+
+/* Эффект нажатия */
+.box-random.active {
+    padding: 0;
+    margin-bottom: 10px;
+    transform: translateY(10px);
+}
+.box-select.active {
+    padding: 0;
+    margin-bottom: 10px;
+    transform: translateY(10px);
+}
+
+/* Контейнер кнопки (внешняя обводка) */
+.box-extra {
+    width: 100%;              /* на всю ширину панели */
+    max-width: 220px;           /* как у других кнопок */
+    text-align: center;
+    cursor: pointer;
+    border: 4px solid #3e2066;
+    background-color: #6b3fa0;
+    padding-bottom: 10px;
+    transition: 0.1s ease-in-out;
+    user-select: none;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 20px;
+}
+/* Внутренняя кнопка (основной цвет) */
+.btn-extra {
+    background-color: #8e5fc0;
+    border: 4px solid #a06fd8;
+    padding: 3px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    color: #ffffff;
+}
+.btn-extra span {
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+/* Эффект нажатия */
+.box-extra:active {
+    padding: 0;
+    margin-bottom: 10px;
+    transform: translateY(10px);
+}
+
+
+        #grom-sounds {
+            position: absolute;
+            top: 210px
+        }
+
+        .obvod-soundVolumeSlider {
+            position: absolute;
+            border: 4px solid #5a5a5a;
+            width: 750px;
+            height: 50px;
+            top: 130px;
+            left: 485px;
+        }
+
+        .obvod-volumeSlider {
+            position: absolute;
+            border: 4px solid #5a5a5a;
+            width: 750px;
+            height: 50px;
+            top: 208px;
+            left: 485px;
+        }
+
+        .updates-img1 {
+           position: absolute;
+            width: 664px;
+            height: 385px;
+            left: 75px;
+            top: 124px;
+        }
+
+        .updates-title1 {
+            margin-top: 0px;
+            padding: 8px 10px;
+            background: #b63a11;
+            border: 3px solid #6c250d;
+            font-family: inherit;
+            position: absolute;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 17px;
+            display: inline-block; 
+            z-index: 20;
+            left: 4px;
+            top: 3px;
+        }
+
+         .updates-title2 {
+            margin-top: 0px;
+            padding: 8px 10px;
+            background: #b63a11;
+            border: 3px solid #6c250d;
+            font-family: inherit;
+            position: absolute;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 17px;
+            display: inline-block; 
+            z-index: 20;
+            left: 524px;
+            top: 3px;
+        }
+
+        .Fourth-drop-2026 {
+            position: absolute;
+            width: 668px;
+            height: 388px;
+            left: 765px;
+            top: 124px;
+        }
+
+         .Fourth-drop-2026-title1 {
+            margin-top: 0px;
+            padding: 8px 10px;
+            background: #7595b3;
+            border: 3px solid #3d5368;
+            font-family: inherit;
+            position: absolute;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 17px;
+            display: inline-block; 
+            z-index: 20;
+            left: 4px;
+            top: 3px;
+        }
+
+         .Fourth-drop-2026-title2 {
+            margin-top: 0px;
+            padding: 8px 10px;
+            background: #7595b3;
+            border: 3px solid #3d5368;
+            font-family: inherit;
+            position: absolute;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 17px;
+            display: inline-block; 
+            z-index: 20;
+            left: 496px;
+            top: 3px;
+        }
+
+        .Orange-Cushion-img {
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            top: -3px;
+            left: 85px;
+        }
+
+        .Orange-Cushion {
+            position: absolute;
+            width: 130px;
+            height: 40px;
+            background-color: #b63a11;
+            top: 338px;
+            left: 4px;
+            border: 3px solid #6b2b16 ;
+        }
+
+        .Orange-Cushion-title {
+            font-family: inherit;
+            position: absolute;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 15px;
+            z-index: 20;
+            left: 4px;
+            top: -6px;
+        }
+
+        .Variegated-forest {
+            position: absolute;
+            width: 151px;
+            height: 40px;
+            background-color: #b61111;
+            top: 462px;
+            left: 214px;
+            border: 3px solid #6b1616 ;
+        }
+
+        .Variegated-forest-img {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            top: 4px;
+            left: 112px;
+            border: 2px solid #ffffff;
+        }
+
+        .Variegated-forest-title {
+            font-family: inherit;
+            position: absolute;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 13px;
+            z-index: 20;
+            left: 4px;
+            top: -3px;
+        }
+
+        .Abandoned-Camp {
+            position: absolute;
+            width: 228px;
+            height: 40px;
+            background-color: #804518;
+            top: 462px;
+            left: 370px;
+            border: 3px solid #5b3212
+        }
+
+        .Abandoned-Camp-img {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            top: 5px;
+            left: 192px;
+        }
+
+        .Abandoned-Camp-title {
+            font-family: inherit;
+            position: absolute;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 14px;
+            z-index: 20;
+            left: 5px;
+            top: -3px;
+        }
+
+        .Poplar {
+            position: absolute;
+            width: 130px;
+            height: 40px;
+            background-color: #b65811;
+            top: 462px;
+            left: 604px;
+            border: 3px solid #6b3e16 ;
+        }
+
+        .Poplar-img {
+            position: absolute;
+            width: 65px;
+            height: 65px;
+            top: -15px;
+            left: 76px;
+        }
+
+        .Poplar-title {
+            font-family: inherit;
+            position: absolute;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 17px;
+            z-index: 20;
+            left: 8px;
+            top: -9px;
+        }
+
+
+        
+
+
     </style>
 </head>
 <body>
-    <p class="souds">Звук</p>
-    <p class="setting" >Настройки</p>
-    <div class="wse">
-        <p class="sunblak" >Тема</p>
-        <div class="button-m">
-            <label class="switch">
-                <input class="toggle" id="themeToggle" type="checkbox" />
-                <span class="slider"></span>
-                <span class="card-side"></span>
-            </label>
 
-            <div id="butt2" class="button-m" >
-                <label class="switch">
-                    <input class="toggle" id="soundToggle" type="checkbox" checked />
-                    <span class="slider"></span>
-                    <span class="card-side"></span>
-                </label>
-            </div>
-        </div>
+    <div class="setting-modal">
+
     </div>
-        <p class="music">Музыка</p>
-        <div class="button-mn">
-            <label class="switch">
-                <input class="toggle" id="musicToggle" type="checkbox" />
-                <span class="slider"></span>
-                <span class="card-side"></span>
-            </label>
-        </div>
+<!-- Кнопка-иконка (триггер) -->
+<img class="settings-icon col" src="images/icon-settings.png" alt="Настройки" id="settingsToggle">
+
+<!-- Выдвижная панель настроек -->
+<div class="settings-panel" id="settingsPanel">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <p class="settings-title">Настройки</p>
+        <img class="close-settings-icon col" src="images/Basck-icon.png" alt="Закрыть" id="closeSettingsBtn">
+    </div>
+
+    <div class="setting-item">
+        <p class="setting-label">Тема</p>
+        <label class="switch">
+            <input class="toggle" id="themeToggle" type="checkbox" />
+            <span class="slider"></span>
+        </label>
+    </div>
+    
+    <div class="setting-item">
+        <p class="setting-label">Звук</p>
+        <label class="switch">
+            <input class="toggle" id="soundToggle" type="checkbox" checked />
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="setting-item">
+        <p class="setting-label">Музыка</p>
+        <label class="switch">
+            <input class="toggle" id="musicToggle" type="checkbox" />
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div class="box-extra" id="showExtraSettingsBtn">
+    <div class="btn-extra col"><span>Дополнительные настройки</span></div>
+</div>
+</div>
 
     <div class="han">
         <div class="box-button">
@@ -705,25 +2118,51 @@
         </div>
         
     </div>
-    <div class="image">
-        <img class="emerald" src="images/emerald.png" alt="Изумруд">
-        <img class="shapka" src="images/hewn.png" alt="Шапка сайта">
-        <img class="tiny_takeover" src="images/Tiny Takeover.jpg" alt="Tiny Takeover">
-        <img class="chaos_cubed" src="images/Chaos Cubed.jpg" alt="Chaos Cubed">
-        <img class="art1" src="images/art1.png" alt="Арт">
+  
+
+    <div class="updates-img1" >
+        <img class="Wilderness-Bound-img" src="images/Wilderness Bound.png" alt="Wilderness Bound">
+        <p class="updates-title1" >Wilderness Bound</p>
+        <p class="updates-title2" >Последнее</p>
+                    <!-- Подушка   -->
+        <div class="Orange-Cushion" >
+            <img class="Orange-Cushion-img" src="images/Orange Cushion.png" alt="Orange Cushion.png">
+            <p class="Orange-Cushion-title">Подушка</p>
+        </div>
+    </div>
+            <!-- Пестрый лес   -->
+    <div class="Variegated-forest">
+        <img class="Variegated-forest-img" src="images/Variegated-Forest.png" alt="Variegated Forest">
+        <p class="Variegated-forest-title">Пестрый лес</p>
+    </div>
+    <!-- Заброшенный лагерь -->
+     <div class="Abandoned-Camp">
+        <img class="Abandoned-Camp-img" src="images/Abandoned Camp.png" alt="Abandoned Camp">
+        <p class="Abandoned-Camp-title">Заброшенный лагерь</p>
+     </div>
+     <!--Тополь-->
+     <div class="Poplar">
+        <img class="Poplar-img" src="images/Poplar.png" alt="Poplar">
+        <p class="Poplar-title">Тополь</p>
+    </div>
+    <div class="Fourth-drop-2026">
+        <img class="Fourth-drop-2026-img" src="images/Fourth drop 2026-img.jpeg" alt="Четвёртый дроп 2026">
+                <p class="Fourth-drop-2026-title1" >Четвёртый дроп 2026</p>
+        <p class="Fourth-drop-2026-title2" >Предстоящее</p>
     </div>
 
-    <div class="left-menu" ></div>
-    <div class="obwodka1"></div>
-    <div class="obwodka2"></div>
+    <img class="emerald" src="images/emerald.png" alt="Изумруд">
+    
+    
+
+
+
+
+
+    
     <div class="fon1"></div>
     <div class="fon2"></div>
-    <div class="fontext1"></div>
-    <div class="fontext2"></div>
-    <div class="fontext3"></div>
-    <div class="fontext4"></div>
-    <div class="fontext5"></div>
-
+    
     
     <div class="overlay" id="overlay"></div>
     <div class="admin" id="adminModal">
@@ -731,22 +2170,147 @@
         <div class="fan">
             <div class="box-button3">
                 <a class="telegram" href="https://t.me/FleysSeseN1_Programming" target="_blank" rel="noopener noreferrer">.....................................</a>
-                    <div class="button3"><span>Телеграмм</span></div>
-        </div>
-                
+                <div class="button3"><span>Телеграмм</span></div>
             </div>
+            
+            
+        </div>
         <button class="close-btn" id="closeModal">Закрыть</button>
     </div>
     <div class="dan">
         <div class="box-button4 dol"> 
-               <div class="button4"><span>Арты</span></div>
-    </div>
+            <div class="button4"><span>Арты</span></div>
+        </div>
+        
+        <img class="art1" src="images/art1.png" alt="Арт">
 
-    <a class="tiny" href="">Tiny Takeover</a>
-    <a class="cellof" href="">Обновления</a>
-    <a class="chaos" href="">Chaos Cubed</a>
-    <p class="text1" >Последнее</p>
-    <p class="text2">Предстоящее</p>
+
+  <div class="btn-9-card">
+      <div class="btn-9" >
+          <div class="box-button-9 dol">
+            <div class="button-9"><span>Блоки</span></div>
+          </div>
+      </div>
+      <div class="fon-tuff-bricks">
+          <img class="tuff-bricks" src="images/Tuff Bricks.png" alt="">
+      </div>
+  </div>      
+
+
+    
+
+    <button class="obn-btn dol">Обновления</button>
+ 
+    
+    <div class="fullscreen-overlay" id="artsOverlay"></div>
+<div class="fullscreen-modal" id="artsModal">
+    <button id="artsCloseBtn" class="clos-btn-2 dol">Закрыть</button>
+    <div class="arts-content">
+        <h1 class="arts-h1" >Арты</h1>
+        <footer>
+            <p class="forget" >Страница артов</p>
+        </footer>
+
+        <div class="card">
+            <p class="text4" >The Copper Age</p>
+            <button class="dowlaud2 dol" >Скачать</button>
+            <img src="images/The Copper Age.png" alt="Арт медный век" class="tca">
+        </div>
+
+        <div class="card1">
+            <p class="text3" >Tiny Takeover</p>
+            <button class="dowlaud1 dol" >Скачать</button>
+            <img src="images/Tiny Takeover.jpg" alt="Арт Нашествие крошек" class="tit">
+        </div>
+
+        <div class="card2">
+            <p class="text5" >Chaos Cubed</p>
+            <button class="dowlaud3 dol" >Скачать</button>
+            <img src="images/Chaos Cubed originals.png" alt="Арт Хаос в кубе" class="ccj">
+        </div>
+
+        <div class="card3">
+            <p class="text6" >Spring to Life</p>
+            <button class="dowlaud4 dol" >Скачать</button>
+            <img src="images/Spring_to_Life.jpg" alt="Spring to Life" class="stl">
+        </div>
+
+        <div class="card4">
+            <p class="text7" >Mounts of Mayhem</p>
+            <button class="dowlaud5 dol" >Скачать</button>
+            <img src="images/Mounts of Mayhem.png" alt="Арт всадники хаоса" class="mom">
+        </div>
+
+        
+
+        <div class="card5">
+            <p class="text8" >Mounts of Mayhem</p>
+            <button class="dowlaud6 dol" >Скачать</button>
+            <img src="images/Chase the Skies.png" alt="Погоня за небесами" class="cts">
+        </div>
+
+        
+        <div class="card6">
+            <p class="text9" >The Garden Awakens</p>
+            <button class="dowlaud7 dol" >Скачать</button>
+            <img src="images/The Garden Awakens.png" alt="Погоня за небесами" class="tga">
+        </div>
+
+
+    </div>
+    </div>
+<div class="fullscreen-modal" id="tradeModal">
+    <button id="tradeCloseBtn" class="clos-btn-2 dol">Закрыть</button>
+    <div class="arts-content">
+        <h1 style="color:#b1b1b1;">Торговля</h1>
+        <p style="color:#b1b1b1;" >Здесь будет торговый контент.</p>
+        
+    </div>
+</div>
+</div>
+</div>
+<div class="fullscreen-modal" id="extraSettingsModal">
+    <button id="extraSettingsCloseBtn" class="clos-btn-2 col">Закрыть</button>
+    <div class="arts-content">
+        <h1 id="dop-settings" style="color:#dadada;">Дополнительные настройки</h1>
+
+        <div class="volume-control">
+    <p class="setting-label" id="grum-music" style="color:#dadada;">Громкость музыки</p>
+    <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.5">
+</div>
+
+<div class="volume-control">
+    <p class="setting-label" id="grom-sounds" style="color:#dadada;">Громкость звуков</p>
+    <input type="range" id="soundVolumeSlider" min="0" max="1" step="0.01" value="0.5">
+</div>
+
+<div class="music-mode-section">
+    <p class="setting-label" style="margin-top: 25px; color:#c1c1c1;">Режим музыки</p>
+<div class="mode-buttons">
+    <div class="box-random active" id="randomModeBtn">
+        <div class="btn-random"><span>Рандом</span></div>
+    </div>
+    <div class="box-select" id="selectModeBtn">
+        <div class="btn-select"><span>Выбор</span></div>
+    </div>
+</div>
+
+<div class="obvod-volumeSlider" ></div>
+<div class="obvod-soundVolumeSlider" ></div>
+    
+    <div id="trackSelectContainer" style="display: none; margin-top: 15px;">
+        <p class="setting-label" style="color:#d0d0d0;">Выберите трек</p>
+        <select id="trackSelect" class="mc-select">
+            <option value="sounds/music.mp3">Music 1</option>
+            <option value="sounds/music1.mp3">Music 2</option>
+            <option value="sounds/music2.mp3">Music 3</option>
+            <option value="sounds/music3.mp3">Music 4</option>
+        </select>
+    </div>
+</div>
+
+        
+    </div>
 
 
 
@@ -764,8 +2328,11 @@
     authorButtonSound.preload = 'auto';
 
     let soundEnabled;
+    let soundVolume = parseFloat(localStorage.getItem('soundVolume') || '0.5');
+
     function playSound(audio) {
         if (soundEnabled) {
+            audio.volume = soundVolume;
             audio.currentTime = 0;
             audio.play();
         }
@@ -791,53 +2358,336 @@
         }
     });
 
-    const musicAudio = new Audio('sounds/music.mp3');
-    musicAudio.preload = 'auto';
-    musicAudio.loop = true;
+    const musicTracks = [
+        'sounds/music.mp3',
+        'sounds/music1.mp3',
+        'sounds/music2.mp3',
+        'sounds/music3.mp3'
+    ];
+
+    let currentMusicAudio = null;
+    let lastPlayedIndex = parseInt(localStorage.getItem('lastMusicIndex') || '-1');
+    let musicMode = localStorage.getItem('musicMode') || 'random';
+    let selectedTrack = localStorage.getItem('selectedTrack') || musicTracks[0];
+
+    function getRandomTrackIndex() {
+        if (musicTracks.length === 1) return 0;
+        let newIndex;
+        do {
+            newIndex = Math.floor(Math.random() * musicTracks.length);
+        } while (newIndex === lastPlayedIndex);
+        return newIndex;
+    }
+
+    function startMusic() {
+        if (currentMusicAudio) {
+            currentMusicAudio.pause();
+            currentMusicAudio.removeEventListener('ended', onMusicEnded);
+            currentMusicAudio = null;
+        }
+        if (musicMode === 'random') {
+            const index = getRandomTrackIndex();
+            lastPlayedIndex = index;
+            localStorage.setItem('lastMusicIndex', index);
+            currentMusicAudio = new Audio(musicTracks[index]);
+        } else {
+            currentMusicAudio = new Audio(selectedTrack);
+            currentMusicAudio.loop = true;
+        }
+        currentMusicAudio.volume = parseFloat(localStorage.getItem('musicVolume') || '0.5');
+        currentMusicAudio.addEventListener('ended', onMusicEnded);
+        currentMusicAudio.play().catch(e => {});
+    }
+
+    function onMusicEnded() {
+        if (musicMode === 'random') {
+            startMusic();
+        } else {
+            currentMusicAudio.currentTime = 0;
+            currentMusicAudio.play().catch(e => {});
+        }
+    }
 
     const musicToggle = document.getElementById('musicToggle');
+    if (localStorage.getItem('musicEnabled') === 'true') {
+        musicToggle.checked = true;
+        startMusic();
+    } else {
+        musicToggle.checked = false;
+    }
     musicToggle.addEventListener('change', function() {
-        playSound(switchSound);  
+        playSound(switchSound);
+        localStorage.setItem('musicEnabled', musicToggle.checked);
         if (musicToggle.checked) {
-            musicAudio.currentTime = 0;
-            musicAudio.play();
+            startMusic();
         } else {
-            musicAudio.pause();
-            musicAudio.currentTime = 0;
+            if (currentMusicAudio) {
+                currentMusicAudio.pause();
+                currentMusicAudio.removeEventListener('ended', onMusicEnded);
+                currentMusicAudio = null;
+            }
         }
     });
 
-    const newButton = document.querySelector('.box-button');
-    newButton.addEventListener('click', function() {
+    // Громкость музыки
+    const volumeSlider = document.getElementById('volumeSlider');
+    const savedVolume = localStorage.getItem('musicVolume');
+    if (savedVolume !== null) {
+        volumeSlider.value = savedVolume;
+    } else {
+        volumeSlider.value = 0.5;
+    }
+    volumeSlider.addEventListener('input', function() {
+        const vol = parseFloat(volumeSlider.value);
+        localStorage.setItem('musicVolume', vol);
+        if (currentMusicAudio) {
+            currentMusicAudio.volume = vol;
+        }
+    });
+    function updateVolumeSliderBackground() {
+        const value = parseFloat(volumeSlider.value);
+        const percent = value * 100;
+        volumeSlider.style.background = `linear-gradient(to right, #42942a ${percent}%, #757575 ${percent}%)`;
+    }
+    updateVolumeSliderBackground();
+    volumeSlider.addEventListener('input', updateVolumeSliderBackground);
+
+    // Громкость звуков интерфейса
+    const soundVolumeSlider = document.getElementById('soundVolumeSlider');
+    if (soundVolumeSlider) {
+        soundVolumeSlider.value = soundVolume;
+        function updateSoundSliderBackground() {
+            const value = parseFloat(soundVolumeSlider.value);
+            const percent = value * 100;
+            soundVolumeSlider.style.background = `linear-gradient(to right, #42942a ${percent}%, #757575 ${percent}%)`;
+        }
+        updateSoundSliderBackground();
+        soundVolumeSlider.addEventListener('input', () => {
+            soundVolume = parseFloat(soundVolumeSlider.value);
+            localStorage.setItem('soundVolume', soundVolume);
+            updateSoundSliderBackground();
+        });
+    }
+
+    const tradeButton = document.querySelector('.box-button');
+    tradeButton.addEventListener('click', function() {
         playSound(buttonSound);
+        const tradeModal = document.getElementById('tradeModal');
+        if (tradeModal) {
+            tradeModal.classList.add('open');
+        }
     });
 
     const authorButton = document.querySelector('.box-button2');
+    const overlay = document.getElementById('overlay');
+    const adminModal = document.getElementById('adminModal');
+    const closeModalBtn = document.getElementById('closeModal');
+
     authorButton.addEventListener('click', function() {
         playSound(authorButtonSound);
         overlay.classList.add('open');
         adminModal.classList.add('open');
     });
 
-    const overlay = document.getElementById('overlay');
-    const adminModal = document.getElementById('adminModal');
-    const closeModalBtn = document.getElementById('closeModal');
-
     closeModalBtn.addEventListener('click', function() {
         overlay.classList.remove('open');
         adminModal.classList.remove('open');
     });
-    overlay.addEventListener('click', function() {
-        overlay.classList.remove('open');
-        adminModal.classList.remove('open');
-    });
-
 
     const dolButtons = document.querySelectorAll('.dol');
+    const artsModal = document.getElementById('artsModal');
+    const artsCloseBtn = document.getElementById('artsCloseBtn');
+
     dolButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             playSound(buttonSound);
         });
+    });
+
+    const artButton = document.querySelector('.box-button4');
+    if (artButton) {
+        artButton.addEventListener('click', () => {
+            artsModal.classList.add('open');
+        });
+    }
+
+    artsCloseBtn.addEventListener('click', () => {
+        artsModal.classList.remove('open');
+    });
+
+    const tradeCloseBtn = document.getElementById('tradeCloseBtn');
+    if (tradeCloseBtn) {
+        tradeCloseBtn.addEventListener('click', function() {
+            const tradeModal = document.getElementById('tradeModal');
+            if (tradeModal) {
+                tradeModal.classList.remove('open');
+            }
+        });
+    }
+
+    // Скачивания
+    const downloadCopperBtn = document.querySelector('.dowlaud2');
+    if (downloadCopperBtn) {
+        downloadCopperBtn.addEventListener('click', function() {
+            const link = document.createElement('a');
+            link.href = 'images/The Copper Age Original.png';
+            link.download = 'The_Copper_Age.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    }
+
+    const downloadTinyBtn = document.querySelector('.dowlaud1');
+    if (downloadTinyBtn) {
+        downloadTinyBtn.addEventListener('click', function() {
+            const link = document.createElement('a');
+            link.href = 'images/Tiny Takeover.jpg';
+            link.download = 'Tiny_Takeover.jpg';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    }
+
+    const downloadTiny2Btn = document.querySelector('.dowlaud6');
+    if (downloadTiny2Btn) {
+        downloadTiny2Btn.addEventListener('click', function() {
+            const link = document.createElement('a');
+            link.href = 'images/Chase the Skies original.png';
+            link.download = 'Chase the Skies.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    }
+
+    const downloadChaosBtn = document.querySelector('.dowlaud3');
+    if (downloadChaosBtn) {
+        downloadChaosBtn.addEventListener('click', function() {
+            const link = document.createElement('a');
+            link.href = 'images/Chaos Cubed originals.png';
+            link.download = 'Chaos_Cubed.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    }
+
+    const downloadChaos2Btn = document.querySelector('.dowlaud4');
+    if (downloadChaos2Btn) {
+        downloadChaos2Btn.addEventListener('click', function() {
+            const link = document.createElement('a');
+            link.href = 'images/Spring_to_Life.jpg';
+            link.download = 'Spring_to_Life.jpg';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    }
+
+    const downloadChaos3Btn = document.querySelector('.dowlaud5');
+    if (downloadChaos3Btn) {
+        downloadChaos3Btn.addEventListener('click', function() {
+            const link = document.createElement('a');
+            link.href = 'images/Mounts of Mayhem.png';
+            link.download = 'Mounts_of_Mayhem.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    }
+
+    const settingsIcon = document.getElementById('settingsToggle');
+    const settingsPanel = document.getElementById('settingsPanel');
+    const closeSettingsBtn = document.getElementById('closeSettingsBtn');
+
+    settingsIcon.addEventListener('click', () => {
+        settingsPanel.classList.add('open');
+        settingsIcon.classList.add('hidden');
+    });
+
+    closeSettingsBtn.addEventListener('click', () => {
+        settingsPanel.classList.remove('open');
+        settingsIcon.classList.remove('hidden');
+    });
+
+    const colButtons = document.querySelectorAll('.col');
+    colButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            playSound(switchSound);
+        });
+    });
+
+    const showExtraBtn = document.getElementById('showExtraSettingsBtn');
+    const extraSettingsModal = document.getElementById('extraSettingsModal');
+    const extraSettingsCloseBtn = document.getElementById('extraSettingsCloseBtn');
+
+    showExtraBtn.addEventListener('click', () => {
+        settingsPanel.classList.remove('open');
+        settingsIcon.classList.remove('hidden');
+        extraSettingsModal.classList.add('open');
+    });
+
+    extraSettingsCloseBtn.addEventListener('click', () => {
+        extraSettingsModal.classList.remove('open');
+    });
+
+    // === Режимы музыки ===
+    const randomModeBtn = document.getElementById('randomModeBtn');
+    const selectModeBtn = document.getElementById('selectModeBtn');
+    const trackSelectContainer = document.getElementById('trackSelectContainer');
+    const trackSelect = document.getElementById('trackSelect');
+
+    function updateModeUI() {
+        if (musicMode === 'random') {
+            randomModeBtn.classList.add('active');
+            selectModeBtn.classList.remove('active');
+        } else {
+            selectModeBtn.classList.add('active');
+            randomModeBtn.classList.remove('active');
+        }
+    }
+
+    if (musicMode === 'select') {
+        trackSelectContainer.style.display = 'block';
+        trackSelect.value = selectedTrack;
+    } else {
+        trackSelectContainer.style.display = 'none';
+    }
+    updateModeUI();
+
+    randomModeBtn.addEventListener('click', () => {
+        if (musicMode === 'random') return;
+        musicMode = 'random';
+        localStorage.setItem('musicMode', 'random');
+        updateModeUI();
+        trackSelectContainer.style.display = 'none';
+        if (musicToggle.checked) {
+            startMusic();
+        }
+        playSound(switchSound);
+    });
+
+    selectModeBtn.addEventListener('click', () => {
+        if (musicMode === 'select') return;
+        musicMode = 'select';
+        localStorage.setItem('musicMode', 'select');
+        updateModeUI();
+        trackSelectContainer.style.display = 'block';
+        if (musicToggle.checked) {
+            startMusic();
+        }
+        playSound(switchSound);
+    });
+
+    trackSelect.addEventListener('change', () => {
+        selectedTrack = trackSelect.value;
+        localStorage.setItem('selectedTrack', selectedTrack);
+        if (musicMode === 'select' && musicToggle.checked) {
+            startMusic();
+        }
+        playSound(switchSound);
     });
 
     document.body.classList.add('light-theme');
